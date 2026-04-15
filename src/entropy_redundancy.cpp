@@ -1,5 +1,5 @@
-#include <vector>
 #include <cmath>
+#include <vector>
 using namespace std;
 
 double calculate_entropy(const vector<double>& probs) {
