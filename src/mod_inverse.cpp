@@ -1,3 +1,7 @@
+#include <iostream>
+
+using namespace std;
+
 int extended_gcd(int a, int b, int &x, int &y) {
     if (b == 0) {
         x = 1;
@@ -15,9 +19,12 @@ int mod_inverse(int a, int m) {
     int x, y;
     int g = extended_gcd(a, m, x, y);
 
+    // Nếu ước chung lớn nhất khác 1 thì không tồn tại nghịch đảo modulo
     if (g != 1) return -1;
 
     int res = x % m;
+    // Đảm bảo kết quả luôn dương
     if (res < 0) res += m;
+    
     return res;
 }
