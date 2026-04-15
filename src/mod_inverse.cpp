@@ -1,6 +1,3 @@
-#include <iostream>
-using namespace std;
-
 int extended_gcd(int a, int b, int &x, int &y) {
     if (b == 0) {
         x = 1;
@@ -20,5 +17,7 @@ int mod_inverse(int a, int m) {
 
     if (g != 1) return -1;
 
-    return (x % m + m) % m;
+    int res = x % m;
+    if (res < 0) res += m;
+    return res;
 }
