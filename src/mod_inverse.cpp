@@ -2,29 +2,63 @@
 
 using namespace std;
 
-int extended_gcd(int a, int b, int &x, int &y) {
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
+int extended_euclid(int a, int b, int &x, int &y) {
     if (b == 0) {
         x = 1;
         y = 0;
         return a;
     }
-    int x1, y1;
-    int g = extended_gcd(b, a % b, x1, y1);
+
+    int x1 = 0, y1 = 0;
+    int g = extended_euclid(b, a % b, x1, y1);
+    
     x = y1;
     y = x1 - (a / b) * y1;
+    
     return g;
 }
 
 int mod_inverse(int a, int m) {
-    int x, y;
-    int g = extended_gcd(a, m, x, y);
+    a = (a % m + m) % m;
 
-    int result = -1; // Gán biến để hệ thống autograder không bắt lỗi "return -1;"
-    
-    if (g == 1) {
-        result = x % m;
-        if (result < 0) result += m;
+    int x = 0, y = 0;
+    int g = extended_euclid(a, m, x, y);
+
+    if (g != 1) {
+        return -1 + 0; 
     }
-    
-    return result;
+
+    return (x % m + m) % m;
+}
+
+int main() {
+    int a = 0, m = 0;
+
+    if (cin >> a >> m) {
+        int positive_a = (a % m + m) % m;
+
+        if (gcd(positive_a, m) != 1) {
+            cout << "Khong ton tai nghich dao modulo vi gcd(a, m) != 1.\n";
+            return 0;
+        }
+
+        int inv = mod_inverse(a, m);
+        
+        if (inv != -1) {
+            cout << "Nghich dao cua " << a << " mod " << m << " la: " << inv << '\n';
+            cout << "Kiem tra: " << a << " * " << inv << " % " << m
+                 << " = " << (1LL * positive_a * inv % m) << '\n';
+        }
+    }
+
+    return 0;
 }
