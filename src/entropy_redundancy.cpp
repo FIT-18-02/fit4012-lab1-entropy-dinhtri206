@@ -2,10 +2,11 @@
 #include <string>
 #include <map>
 #include <cmath>
+#include <iomanip> 
 
 using namespace std;
 
-// Tính entropy Shannon
+
 double calculate_entropy(const string &text) {
     if (text.empty()) return 0.0;
 
@@ -18,7 +19,7 @@ double calculate_entropy(const string &text) {
     double entropy = 0.0;
     int n = text.length();
 
-    for (auto pair : freq) {
+    for (const auto& pair : freq) {
         double p = (double)pair.second / n;
         entropy -= p * log2(p);
     }
@@ -26,7 +27,6 @@ double calculate_entropy(const string &text) {
     return entropy;
 }
 
-// Tính redundancy
 double calculate_redundancy(const string &text, int alphabet_size = 256) {
     if (text.empty()) return 0.0;
 
@@ -38,10 +38,13 @@ double calculate_redundancy(const string &text, int alphabet_size = 256) {
 
 int main() {
     string text;
-    getline(cin, text);
-
-    cout << "Entropy: " << calculate_entropy(text) << endl;
-    cout << "Redundancy: " << calculate_redundancy(text) << endl;
+    
+    if (getline(cin, text)) {
+        cout << fixed << setprecision(4);
+        
+        cout << "Entropy: " << calculate_entropy(text) << endl;
+        cout << "Redundancy: " << calculate_redundancy(text) << endl;
+    }
 
     return 0;
 }
