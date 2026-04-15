@@ -13,4 +13,4 @@
 - [x] `a=6, m=9` -> không tồn tại nghịch đảo modulo
 
 ## 3. Ghi chú
-Thêm test riêng của nhóm nếu cần.
+Về lý thuyết: * Dữ liệu càng lặp lại (vd: aaaa) thì Entropy càng thấp, Redundancy càng cao và ngược lại.Nghịch đảo modulo chỉ tồn tại khi 2 số nguyên tố cùng nhau (gcd(a, m) = 1).Về code (Edge cases):Xử lý lỗi số âm đầu vào bằng công thức (a % m + m) % m.Ép kiểu long long khi test a * inv % m để tránh lỗi tràn số.
