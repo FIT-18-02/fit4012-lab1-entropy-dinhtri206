@@ -18,9 +18,7 @@ int mod_inverse(int a, int m) {
     int x, y;
     int g = extended_gcd(a, m, x, y);
 
-    if (g != 1) return -1;  // không tồn tại nghịch đảo
+    if (g != 1) return -1;
 
     return (x % m + m) % m;
 }
-
-
