@@ -1,19 +1,32 @@
 #include <cmath>
-#include <vector>
+#include <map>
+#include <string>
 using namespace std;
 
-double calculate_entropy(const vector<double>& probs) {
-    double H = 0.0;
-    for (double p : probs) {
-        if (p > 0) {
-            H -= p * log2(p);
-        }
+double calculate_entropy(const string &text) {
+    if (text.empty()) return 0.0;
+
+    map<char, int> freq;
+    for (char c : text) {
+        freq[c]++;
     }
+
+    double H = 0.0;
+    int n = text.size();
+
+    for (auto &p : freq) {
+        double prob = (double)p.second / n;
+        H -= prob * log2(prob);
+    }
+
     return H;
 }
 
-double calculate_redundancy(const vector<double>& probs) {
-    double H = calculate_entropy(probs);
-    double Hmax = log2(probs.size());
-    return 1 - (H / Hmax);
+double calculate_redundancy(const string &text, int alphabet_size = 256) {
+    if (text.empty()) return 0.0;
+
+    double H = calculate_entropy(text);
+    double Hmax = log2(alphabet_size);
+
+    return Hmax - H;
 }
