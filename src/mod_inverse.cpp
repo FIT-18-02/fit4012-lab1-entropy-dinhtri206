@@ -11,26 +11,25 @@ int gcd(int a, int b) {
     return a;
 }
 
-int extended_euclid(int a, int b, int &x, int &y) {
+int extended_gcd(int a, int b, int &x, int &y) {
     if (b == 0) {
-        x = 1;
-        y = 0;
+        x = 1; y = 0;
         return a;
     }
-
-    int x1 = 0, y1 = 0;
-    int g = extended_euclid(b, a % b, x1, y1);
+    int x1, y1;
+    int g = extended_gcd(b, a % b, x1, y1);
     x = y1;
     y = x1 - (a / b) * y1;
     return g;
 }
 
 int mod_inverse(int a, int m) {
-    // TODO(student): implement modular inverse using extended_euclid()
-    // If inverse does not exist, return -1.
-    (void)a;
-    (void)m;
-    return -1;
+    int x, y;
+    int g = extended_gcd(a, m, x, y);
+
+    if (g != 1) return -1; // QUAN TRỌNG
+
+    return (x % m + m) % m;
 }
 
 int main() {
