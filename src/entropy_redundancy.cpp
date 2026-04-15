@@ -1,5 +1,6 @@
 #include <cmath>
 #include <string>
+
 using namespace std;
 
 double calculate_entropy(const string &text) {
@@ -29,5 +30,9 @@ double calculate_redundancy(const string &text, int alphabet_size = 256) {
     double H = calculate_entropy(text);
     double Hmax = log2(alphabet_size);
 
-    return Hmax - H;
+    // Tránh lỗi chia cho 0 nếu bảng chữ cái chỉ có 1 ký tự
+    if (Hmax == 0) return 0.0; 
+
+    // Sử dụng công thức Độ dư thừa tương đối
+    return 1.0 - (H / Hmax);
 }
