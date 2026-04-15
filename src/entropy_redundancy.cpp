@@ -1,22 +1,23 @@
 #include <cmath>
-#include <map>
 #include <string>
 using namespace std;
 
 double calculate_entropy(const string &text) {
     if (text.empty()) return 0.0;
 
-    map<char, int> freq;
+    int freq[256] = {0};
     for (char c : text) {
-        freq[c]++;
+        freq[(unsigned char)c]++;
     }
 
     double H = 0.0;
     int n = text.size();
 
-    for (auto &p : freq) {
-        double prob = (double)p.second / n;
-        H -= prob * log2(prob);
+    for (int i = 0; i < 256; i++) {
+        if (freq[i] > 0) {
+            double p = (double)freq[i] / n;
+            H -= p * log2(p);
+        }
     }
 
     return H;
