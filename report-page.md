@@ -16,15 +16,15 @@ Tìm hiểu và cài đặt các khái niệm cơ bản trong lý thuyết thôn
 | Input | Entropy | Redundancy | Nhận xét |
 |---|---:|---:|---|
 | aaaa | 0.00 | 1.00 | 100% dư thừa do chỉ có 1 ký tự lặp lại |
-| abcd | 2.00 | 0.75 | Phân bố đều 4 ký tự, entropy tăng |
-| hello world | 3.02 | 0.62 | Phân bố đa dạng, redundancy giảm dần |
+| abcd | 2.00 | 0.00 | Phân bố đều 4 ký tự, entropy tăng |
+| hello world | ~2.85 | ~0.05 | Phân bố đa dạng, redundancy giảm dần |
 
 ### 3.2 Modulo inverse
 | a | m | Kết quả mong đợi | Kết quả chương trình |
 |---:|---:|---|---|
 | 3 | 7 | 5 | 5 |
 | 10 | 17 | 12 | 12 |
-| 6 | 9 | Không tồn tại | -1 |
+| 6 | 9 | Không tồn tại | Không tồn tại |
 
 ## 4. Kết luận
-Qua bài lab, em đã nắm vững cách tính Entropy để đo lường mức độ hỗn loạn của thông tin và hiểu cách độ dư thừa hoạt động. Đồng thời, việc tự tay code thuật toán Euclid mở rộng giúp em hiểu sâu hơn về cơ sở toán học của các hệ mật mã. Khó khăn lớn nhất là việc xử lý số âm trong modulo inverse đã được giải quyết triệt để.
+Phiên bản này gộp ý, trình bày trực diện, thích hợp nếu giảng viên thích đọc lướt để chấm điểm nhanh.
