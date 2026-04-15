@@ -1,18 +1,14 @@
 # Run Log – FIT4012 Lab 1
 
 ## Entropy / Redundancy
-- [x] Test aaaa
-- [x] Test abcd
-- [x] Test hello_world
-- [x] Test aabbcc
-- [x] Test fit4012_test
+- [X] Đã chạy với input `aaaa`
+- [X] Đã chạy với input `abcd`
+- [X] Đã chạy với input `hello world`
 
 ## Modulo inverse
-- [x] Test 3 7
-- [x] Test 10 17
-- [x] Test 6 9
-- [x] Test 5 11
-- [x] Test 7 13
+- [X] Đã chạy với `3 7`
+- [X] Đã chạy với `10 17`
+- [X] Đã chạy với `6 9`
 
-## Summary
-Chương trình đã biên dịch và chạy thành công. Tất cả 10 test cases cho phần Entropy/Redundancy và Modulo inverse đều thực thi tốt và trả về kết quả chính xác. Không phát hiện lỗi bộ nhớ (memory leak) hay lỗi runtime nào trong quá trình kiểm thử.
+## Điều em học được từ bài lab
+Bài lab giúp em hiểu bản chất của việc đo lường dữ liệu qua Entropy và Redundancy, đồng thời biết cách ứng dụng thuật toán Euclid mở rộng để tìm Modulo inverse. Nhờ việc chạy thử nghiệm với nhiều bộ dữ liệu (test cases) khác nhau, em đã khắc phục được khó khăn ban đầu trong việc cài đặt công thức toán học và xử lý các giá trị âm một cách chính xác.
