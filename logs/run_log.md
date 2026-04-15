@@ -8,7 +8,7 @@
 ## Modulo inverse
 - [x] Đã chạy với `3 7`
 - [x] Đã chạy với `10 17`
-- [] Đã chạy với `6 9`
+- [x] Đã chạy với `6 9`
 
 ## Điều em học được từ bài lab
 Qua bài lab, em hiểu cách tính entropy và độ dư thừa của thông tin.
